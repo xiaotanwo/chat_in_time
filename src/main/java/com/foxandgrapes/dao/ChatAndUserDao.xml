@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.foxandgrapes.dao.ChatAndUserDao">
+    <select id="queryChatJoinUser" resultType="com.foxandgrapes.domain.ChatAndUser">
+        select c.id, c.userId, c.content, u.name userName, u.image userImage
+        from (select id, userId, content from chat where id > #{id}) c left join user u on c.userId = u.id
+    </select>
+</mapper>

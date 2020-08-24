@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--<settings>-->
+    <!--&lt;!&ndash; 打印日志到控制台 &ndash;&gt;-->
+    <!--<setting name="logImpl" value="STDOUT_LOGGING"/>-->
+    <!--</settings>-->
+
+    <!--设置别名-->
+    <typeAliases>
+        <!--实体类所在的包名-->
+        <package name="com.foxandgrapes.domain"/>
+    </typeAliases>
+
+    <!--sql mapper 的位置-->
+    <mappers>
+        <package name="com.foxandgrapes.dao"/>
+        <!--
+            1、mapper文件名称和dao接口名称必须一样（包括大小写）
+            2、mapper文件必须和dao接口在同一个目录下
+        -->
+    </mappers>
+</configuration>

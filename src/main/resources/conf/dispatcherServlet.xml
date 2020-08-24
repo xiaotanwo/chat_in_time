@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       https://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+       https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!--springmvc的配置文件，声明controller和其他web相关的对象-->
+    <context:component-scan base-package="com.foxandgrapes.controller" />
+
+    <!--视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!--注解驱动-->
+    <mvc:annotation-driven />
+
+    <!--访问静态资源-->
+    <mvc:resources mapping="/static/**" location="/static/" />
+
+    <!--创建handler-->
+    <context:component-scan base-package="com.foxandgrapes.handler" />
+
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <!--不拦截-->
+            <mvc:exclude-mapping path="/login"/>
+            <mvc:exclude-mapping path="/to_register"/>
+            <mvc:exclude-mapping path="/register"/>
+            <mvc:exclude-mapping path="/check_name"/>
+            <mvc:exclude-mapping path="/static/**"/>
+            <bean class="com.foxandgrapes.handler.MyInterceptors" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+</beans>
