@@ -1,6 +1,7 @@
-该项目名称：WEB即时聊天系统
+# 该项目名称：WEB即时聊天系统
 
-使用spring boot 和 vue 对项目进行重构和扩展：https://github.com/xiaotanwo/chat
+# 使用spring boot 和 vue 对项目进行重构和扩展
+# 新仓库：https://github.com/xiaotanwo/chat
 
 B站演示视频：https://www.bilibili.com/video/BV1Vh411R7QE/
 
